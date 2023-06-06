@@ -1,10 +1,12 @@
+import Navber from "../Shared/Navber";
+import Container from "../components/Container";
 
 
 const MainLayOut = () => {
     return (
-        <div>
-            
-        </div>
+        <Container>
+            <Navber />
+        </Container>
     );
 };
 
