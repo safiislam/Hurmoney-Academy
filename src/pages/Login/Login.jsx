@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaRegEye, FaRegEyeSlash,  } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash, } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import SocialMediaLogin from "../../components/SocialMediaLogin";
 
 const Login = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const [show,setShow] = useState(false)
+    const { register, handleSubmit } = useForm();
+    const [show, setShow] = useState(false)
     const onSubmit = data => console.log(data);
     return (
         <div>
@@ -20,24 +22,28 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" required {...register("email")} className="input input-bordered" />
+                                <input type="email" placeholder="email" required {...register("email")} className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <div className="flex gap-2">
-                                    <input type={show ? 'password' : 'text'} required placeholder="password" className="input input-bordered flex-grow" />
-                                    <button onClick={()=>setShow(!show)}>{ !show ? <FaRegEye size={25} /> : <FaRegEyeSlash size={25} />}</button>
+                                <div className="relative">
+                                    <input type={show ? 'password' : 'text'} required placeholder="password" className="input input-bordered w-full flex-grow" />
+                                    <button className="absolute top-3 right-3" onClick={() => setShow(!show)}>{!show ? <FaRegEye size={25} /> : <FaRegEyeSlash size={25} />}</button>
                                 </div>
 
                             </div>
                             <div className="form-control mt-6">
-                                
+
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
                             <div>
-                                
+                                <div>
+                                    New here? <Link to='/register' className="underline">Create a New Account</Link>
+                                </div>
+                                <div className="divider">Or sign in with</div>
+                                <SocialMediaLogin />
                             </div>
                         </form>
                     </div>
