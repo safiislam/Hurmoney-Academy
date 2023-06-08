@@ -1,13 +1,27 @@
 import { useForm } from "react-hook-form";
 import SocialMediaLogin from "../../components/SocialMediaLogin";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { createContext, useRef } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
+    const {signIn,updateProfile} = createContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const password = useRef({});
     password.current = watch("password", "");
-    const onSubmit = data => console.log(data);
+    const onSubmit = data =>{
+        signIn(data.email,data.password)
+        .then(result=>{
+            const user =  result.user
+            updateProfile({name:data.name,url:data.url})
+            .then(()=>{})
+            .catch(err=>console.log(err)) 
+
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    };
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -41,10 +55,10 @@ const Register = () => {
                                         message: "Password should be at least 6 characters long."
                                     },
                                     pattern: {
-                                        value:/^(?=.*?[a-z])(?=.*?[0-9]).*$/,
+                                        value: /^(?=.*?[a-z])(?=.*?[0-9]).*$/,
                                         message: "Password must contain at least 1 lowercase letter and 1 number."
                                     }
-                            
+
                                 })} className="input input-bordered w-full flex-grow" />
                                 {errors.password && <span className="text-error">{errors.password.message}</span>}
 
@@ -59,13 +73,19 @@ const Register = () => {
                                 {errors.confirmPassword && <span className="text-error">{errors.confirmPassword.message}</span>}
 
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">photo url</span>
+                                </label>
+                                <input type="text" placeholder="photoUrl" required {...register("url")} className="input input-bordered" />
+                            </div>
                             <div className="form-control mt-6">
 
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
                             <div>
                                 <div>
-                                    New here? <Link to='/login' className="underline">Create a New Account</Link>
+                                Already registered? <Link to='/login' className="underline"> Go to log in</Link>
                                 </div>
                                 <div className="divider">Or sign in with</div>
                                 <SocialMediaLogin />
