@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import SocialMediaLogin from "../../components/SocialMediaLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useRef } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import axios from "axios";
 
 const Register = () => {
     const { signIn, updatePro } = useContext(AuthContext)
+    const navigate = useNavigate()
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const password = useRef({});
     password.current = watch("password", "");
@@ -17,10 +19,14 @@ const Register = () => {
                 const user = result.user
 
                 if (user) {
+                    axios.post('https://summry-camp-school-server.vercel.app/users', { name: data.name, email: email })
                     updatePro({ name: data.name, url: data.url })
-                    .then(() => { })
-                    .catch(err => console.log(err))
+                        .then(() => {
+                            navigate('/')
+                         })
+                        .catch(err => console.log(err))
                 }
+
 
             })
             .catch(err => {

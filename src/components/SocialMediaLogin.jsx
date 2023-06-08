@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { FaGooglePlusG } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const SocialMediaLogin = () => {
@@ -13,7 +14,10 @@ const SocialMediaLogin = () => {
     const handleGoogleSignIn=()=>{
         googleSignIn()
         .then((result)=>{
-            const user =  result.user 
+            const user =  result.user
+            const userData = {name:user.displayName,email:user.email}
+                axios.post('https://summry-camp-school-server.vercel.app/users', userData )
+           
             navigate(from,{replace:true})
         })
         .catch(err=>console.log(err))
