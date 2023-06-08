@@ -6,47 +6,48 @@ export const AuthContext = createContext()
 const provider = new GoogleAuthProvider();
 
 const auth = getAuth(app)
-const AuthProvider = ({children}) => {
-    const [user,setUser] = useState(null)
-    const [loader,setLoader] = useState(true)
-    
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null)
+    const [loader, setLoader] = useState(true)
 
-    const signIn = (email,password)=>{
+
+    const signIn = (email, password) => {
         setLoader(true)
-        return createUserWithEmailAndPassword(auth,email,password)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
-    const logOut = ()=>{
+    const logOut = () => {
         setLoader(true)
         return signOut(auth)
     }
-    const updateProfile=({name,url})=>{
+    const updatePro = ({ name, url }) => {
         setLoader(true)
-        return updateProfile(auth.currentUser,{
-            displayName:name,
-            photoURL:url
-        })
+        return (updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: url
+        }))
     }
-    const googleSignIn =()=>{
+    const googleSignIn = () => {
         setLoader(true)
-        return signInWithPopup(auth,provider)
-    } 
-    useEffect(()=>{
-        const unsubscribe =  onAuthStateChanged(auth,currentUser=>{
+        return signInWithPopup(auth, provider)
+    }
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setLoader(false)
             setUser(currentUser)
+            console.log(currentUser)
         })
-        return ()=>{
+        return () => {
             return unsubscribe()
         }
-    },[])
+    }, [])
 
-    const authInfo ={
+    const authInfo = {
         user,
         signIn,
         logOut,
         loader,
         googleSignIn,
-        updateProfile
+        updatePro
     }
     return (
         <AuthContext.Provider value={authInfo}>

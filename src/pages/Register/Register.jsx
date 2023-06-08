@@ -1,26 +1,31 @@
 import { useForm } from "react-hook-form";
 import SocialMediaLogin from "../../components/SocialMediaLogin";
 import { Link } from "react-router-dom";
-import { createContext, useRef } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
-    const {signIn,updateProfile} = createContext(AuthContext)
+    const { signIn, updatePro } = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const password = useRef({});
     password.current = watch("password", "");
-    const onSubmit = data =>{
-        signIn(data.email,data.password)
-        .then(result=>{
-            const user =  result.user
-            updateProfile({name:data.name,url:data.url})
-            .then(()=>{})
-            .catch(err=>console.log(err)) 
+    const onSubmit = data => {
+        const email = data.email
+        const password = data.password
+        signIn(email, password)
+            .then(result => {
+                const user = result.user
 
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+                if (user) {
+                    updatePro({ name: data.name, url: data.url })
+                    .then(() => { })
+                    .catch(err => console.log(err))
+                }
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
     };
     return (
         <div>
@@ -36,7 +41,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" placeholder="name" required {...register("email")} className="input input-bordered" />
+                                <input type="text" placeholder="name" required {...register("name")} className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -85,7 +90,7 @@ const Register = () => {
                             </div>
                             <div>
                                 <div>
-                                Already registered? <Link to='/login' className="underline"> Go to log in</Link>
+                                    Already registered? <Link to='/login' className="underline"> Go to log in</Link>
                                 </div>
                                 <div className="divider">Or sign in with</div>
                                 <SocialMediaLogin />
