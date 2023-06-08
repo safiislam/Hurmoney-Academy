@@ -5,15 +5,15 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Navber = () => {
     const { user, logOut } = useContext(AuthContext)
-    const handleLogOut =()=> { 
+    const handleLogOut = () => {
         logOut()
     }
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
-        
+
     </>
     return (
-        <div>
+        <div className='fixed top-0 z-10 max-w-[1168px]  rounded w-full '>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -24,14 +24,14 @@ const Navber = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <a className="btn btn-ghost normal-case text-xl">Harmony Academy</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navItems}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="  navbar-end">
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">

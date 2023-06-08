@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext } from "react";
 import { FaGooglePlusG } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/AuthProvider";
