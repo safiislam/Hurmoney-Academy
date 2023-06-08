@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye, FaRegEyeSlash, } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialMediaLogin from "../../components/SocialMediaLogin";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
+    const {logIn} = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
     const [show, setShow] = useState(false)
-    const onSubmit = data => console.log(data);
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
+    const onSubmit = data => {
+        logIn(data.email,data.password)
+        .then(result=>{
+            const user= result.user
+            navigate(from, { replace: true }); 
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    };
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -29,7 +43,7 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <div className="relative">
-                                    <input type={show ? 'password' : 'text'} required placeholder="password" className="input input-bordered w-full flex-grow" />
+                                    <input type={show ? 'password' : 'text'} {...register("password")} required placeholder="password" className="input input-bordered w-full flex-grow" />
                                     <button className="absolute top-3 right-3" onClick={() => setShow(!show)}>{!show ? <FaRegEye size={25} /> : <FaRegEyeSlash size={25} />}</button>
                                 </div>
 
