@@ -2,11 +2,13 @@ import { FaTrashAlt } from "react-icons/fa";
 import useBooking from "../../../../hooks/useBooking";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
 const MyBookings = () => {
     const [bookings, refetch] = useBooking()
+   
     const total = bookings.reduce((sum, item) => sum + item.price, 0)
     const handleDelate = (id) => {
         Swal.fire({
@@ -44,6 +46,7 @@ const MyBookings = () => {
             <div className="flex justify-between">
                 <p className="text-3xl font-bold">Total Books:{bookings.length}  </p>
                 <p className="text-xl font-bold">Total price: {total}  </p>
+                <Link to='/dashbord/payment'><button  className="btn btn-success btn-xs" >payment</button></Link>
             </div>
             <div className="overflow-x-auto">
                 <table className="table">

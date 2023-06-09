@@ -11,6 +11,7 @@ import MyClass from "../pages/Dashbord/Instructor/MyClass/MyClass";
 import UpdateClass from "../pages/Dashbord/Instructor/MyClass/UpdateClass";
 import AllClassPage from "../pages/AllClassPage/AllClassPage";
 import MyBookings from "../pages/Dashbord/Student/MyBookings/MyBookings";
+import Payment from "../pages/Dashbord/Student/Payment/Payment";
 
 
 
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
             {
                 path:'myBooking',
                 element:<MyBookings />
+            },
+            {
+                path:'payment',
+                element: <Payment />
             },
             // instructor 
             {
