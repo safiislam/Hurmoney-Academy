@@ -2,7 +2,7 @@
     {
         "courseImg":"https://images.pexels.com/photos/34221/violin-musical-instrument-music-sound.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "courseName":"Rhythmic Rhythms",
-        "instructorName":"Mr. Tempo Tapper",
+        "instractorName":"Mr. Tempo Tapper",
         "instractorEmail":"safiislam04@gmail.com",
         "availableSeats": 40,
         "totalEnroll":70,
@@ -13,7 +13,7 @@
     {
         "courseImg":"https://images.pexels.com/photos/16999360/pexels-photo-16999360/free-photo-of-woman-and-man-hands-playing-piano.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "courseName":"Sonic Symphony",
-        "instructorName":"Ms. Melody Maestro",
+        "instractorName":"Ms. Melody Maestro",
         "availableSeats": 20,
         "totalEnroll":50,
         "price":5000,
@@ -24,7 +24,7 @@
     {
         "courseImg":"https://images.pexels.com/photos/4088014/pexels-photo-4088014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "courseName":"Harmonious Melodies",
-        "instructorName":"Professor Jazz Jammer",
+        "instractorName":"Professor Jazz Jammer",
         "availableSeats": 20,
         "totalEnroll":60,
         "price":6500,
@@ -35,7 +35,7 @@
     {
         "courseImg":"https://images.pexels.com/photos/4088786/pexels-photo-4088786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "courseName":"Jazz Junction",
-        "instructorName":"Mrs. Rockstar Riff",
+        "instractorName":"Mrs. Rockstar Riff",
         "availableSeats": 20,
         "totalEnroll":100,
         "price":6000,
@@ -46,7 +46,7 @@
     {
         "courseImg":"https://images.pexels.com/photos/191240/pexels-photo-191240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "courseName":"Rock & Roll Revolution",
-        "instructorName":"Maestro Sonata",
+        "instractorName":"Maestro Sonata",
         "availableSeats": 20,
         "totalEnroll":90,
         "price":4000,
@@ -57,7 +57,7 @@
     {
         "courseImg":"https://images.pexels.com/photos/15967605/pexels-photo-15967605/free-photo-of-violin-in-case-on-grass.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "courseName":"World Beats",
-        "instructor-name":"Dr. Beat Master",
+        "instractorName":"Dr. Beat Master",
         "availableSeats": 20,
         "totalEnroll":80,
         "price":5500,

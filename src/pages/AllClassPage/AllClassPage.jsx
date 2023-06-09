@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Card from "../../components/Card";
+import AllClasCard from "./AllClasCard";
+
 
 
 const AllClassPage = () => {
@@ -15,7 +16,7 @@ const AllClassPage = () => {
         <div>
             <div className="mt-16 grid grid-cols-3">
                 {
-                    allClass.map(item=><Card key={item._id}itmes={item} />)
+                    allClass.map(item=> <AllClasCard key={item._id} item={item}/> )
                 }
             </div>
         </div>
