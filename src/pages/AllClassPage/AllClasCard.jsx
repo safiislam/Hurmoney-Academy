@@ -33,7 +33,7 @@ const AllClasCard = ({ item }) => {
     }
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            <div className="card card-compact w-full bg-base-100 shadow-xl">
                 <div className="relative">
                     <p className="bg-black text-white inline-block absolute px-3 rounded">price: {price}</p>
                     <figure><img className="h-[300px] w-full rounded-b" src={courseImg} alt="class img" /></figure>

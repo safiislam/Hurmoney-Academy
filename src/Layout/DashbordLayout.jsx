@@ -37,6 +37,7 @@ const DashbordLayout = () => {
                                     <>
                                         <p className="text-xl font-bold  items-center justify-center gap-2 flex mb-10"> <RiAdminLine size={30} /> <span>Student Dashbord</span></p>
                                         <li><NavLink to='/dashbord/myBooking'>My bookings class</NavLink></li>
+                                        <li><NavLink to='/dashbord/paymentHistory'>payment History</NavLink></li>
                                     </>
 
 

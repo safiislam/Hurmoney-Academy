@@ -12,6 +12,7 @@ import UpdateClass from "../pages/Dashbord/Instructor/MyClass/UpdateClass";
 import AllClassPage from "../pages/AllClassPage/AllClassPage";
 import MyBookings from "../pages/Dashbord/Student/MyBookings/MyBookings";
 import Payment from "../pages/Dashbord/Student/Payment/Payment";
+import PaymentHistory from "../pages/Dashbord/Student/PaymentHistory/PaymentHistory";
 
 
 
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
             {
                 path:'payment',
                 element: <Payment />
+            },
+            {
+                path:'paymentHistory',
+                element:<PaymentHistory />
             },
             // instructor 
             {
