@@ -9,7 +9,7 @@ const useBooking = () => {
     const {data:bookings=[]} =useQuery({
         queryKey:['classBookings',user?.email],
         queryFn: async () =>{
-            const res = await axios.get(`http://localhost:5000/classbookings?email=${user?.email}`)
+            const res = await axios.get(`https://summry-camp-school-server.vercel.app/classBookings?email=${user?.email}`)
             return res.data
         }
     })
