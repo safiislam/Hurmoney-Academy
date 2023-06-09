@@ -4,7 +4,8 @@ import { RiAdminLine } from 'react-icons/ri'
 
 const DashbordLayout = () => {
     const isAdmin = false
-    const isInstructor = true
+    const isInstructor = false
+
     return (
         <Container>
             <div className="drawer lg:drawer-open">
@@ -28,12 +29,14 @@ const DashbordLayout = () => {
                             ) :
                                 isInstructor ? (
                                     <>
-                                    <p className="text-xl font-bold  items-center justify-center gap-2 flex mb-10"> <RiAdminLine size={30} /> <span>Instructor Dashbord</span></p>
-                                    <li><NavLink to='/dashbord/addClass'>Add Class</NavLink></li>
-                                    <li><NavLink to='/dashbord/myClass'>My Class</NavLink></li>
+                                        <p className="text-xl font-bold  items-center justify-center gap-2 flex mb-10"> <RiAdminLine size={30} /> <span>Instructor Dashbord</span></p>
+                                        <li><NavLink to='/dashbord/addClass'>Add Class</NavLink></li>
+                                        <li><NavLink to='/dashbord/myClass'>My Class</NavLink></li>
                                     </>
                                 ) :
                                     <>
+                                        <p className="text-xl font-bold  items-center justify-center gap-2 flex mb-10"> <RiAdminLine size={30} /> <span>Student Dashbord</span></p>
+                                        <li><NavLink to='/dashbord/myBooking'>My bookings class</NavLink></li>
                                     </>
 
 

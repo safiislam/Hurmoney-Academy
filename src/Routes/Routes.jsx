@@ -10,6 +10,7 @@ import ClassAdd from "../pages/Dashbord/Instructor/ClassAdd/ClassAdd";
 import MyClass from "../pages/Dashbord/Instructor/MyClass/MyClass";
 import UpdateClass from "../pages/Dashbord/Instructor/MyClass/UpdateClass";
 import AllClassPage from "../pages/AllClassPage/AllClassPage";
+import MyBookings from "../pages/Dashbord/Student/MyBookings/MyBookings";
 
 
 
@@ -41,6 +42,11 @@ export const router = createBrowserRouter([
         path: 'dashbord',
         element: <DashbordLayout />,
         children: [
+            // sutdent deshbord 
+            {
+                path:'myBooking',
+                element:<MyBookings />
+            },
             // instructor 
             {
                 path:'addClass',

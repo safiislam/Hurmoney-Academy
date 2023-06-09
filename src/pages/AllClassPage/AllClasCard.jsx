@@ -1,8 +1,36 @@
 /* eslint-disable react/prop-types */
 
+import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+
+
 
 const AllClasCard = ({ item }) => {
-    const { courseImg, courseName, availableSeats, totalEnroll, price,instractorName,instractorEmail } = item
+    const { user } = useContext(AuthContext)
+    const { courseImg, courseName, availableSeats, totalEnroll, price, instractorName, instractorEmail, _id } = item
+
+
+    const handleEnrole = () => {
+        const date = new Date()
+        const bookingData = { name: user.displayName, email: user.email, courseId: _id, price, courseName, date }
+        axios.post('https://summry-camp-school-server.vercel.app/classBookings', bookingData)
+            .then(date => {
+
+                if (date.data.insertedId) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'your course booked successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+
+
+            })
+    }
     return (
         <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -23,7 +51,7 @@ const AllClasCard = ({ item }) => {
                     </div>
 
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button onClick={handleEnrole} className="btn btn-primary">Enroll</button>
                     </div>
                 </div>
             </div>
