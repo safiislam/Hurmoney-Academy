@@ -9,6 +9,7 @@ import MenageUser from "../pages/Dashbord/Admin/MenageUser/MenageUser";
 import ClassAdd from "../pages/Dashbord/Instructor/ClassAdd/ClassAdd";
 import MyClass from "../pages/Dashbord/Instructor/MyClass/MyClass";
 import UpdateClass from "../pages/Dashbord/Instructor/MyClass/UpdateClass";
+import AllClassPage from "../pages/AllClassPage/AllClassPage";
 
 
 
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
                 path: 'register',
                 element: <Register />
             },
+            {
+                path:'allClass',
+                element: <AllClassPage />
+            }
 
         ]
     },

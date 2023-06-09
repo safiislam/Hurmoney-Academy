@@ -3,9 +3,11 @@
         "courseImg":"https://images.pexels.com/photos/34221/violin-musical-instrument-music-sound.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "courseName":"Rhythmic Rhythms",
         "instructorName":"Mr. Tempo Tapper",
+        "instractorEmail":"safiislam04@gmail.com",
         "availableSeats": 40,
         "totalEnroll":70,
-        "price":5500
+        "price":5500,
+        "status":"approve"
 
     },
     {
@@ -14,7 +16,9 @@
         "instructorName":"Ms. Melody Maestro",
         "availableSeats": 20,
         "totalEnroll":50,
-        "price":5000
+        "price":5000,
+        "status":"approve",
+        "instractorEmail":"safiislam04@gmail.com"
 
     },
     {
@@ -23,7 +27,9 @@
         "instructorName":"Professor Jazz Jammer",
         "availableSeats": 20,
         "totalEnroll":60,
-        "price":6500
+        "price":6500,
+        "instractorEmail":"safiislam04@gmail.com",
+        "status":"approve"
 
     },
     {
@@ -32,7 +38,9 @@
         "instructorName":"Mrs. Rockstar Riff",
         "availableSeats": 20,
         "totalEnroll":100,
-        "price":6000
+        "price":6000,
+        "instractorEmail":"safiislam04@gmail.com",
+        "status":"approve"
 
     },
     {
@@ -41,7 +49,9 @@
         "instructorName":"Maestro Sonata",
         "availableSeats": 20,
         "totalEnroll":90,
-        "price":4000
+        "price":4000,
+        "instractorEmail":"safiislam04@gmail.com",
+        "status":"approve"
 
     },
     {
@@ -50,7 +60,9 @@
         "instructor-name":"Dr. Beat Master",
         "availableSeats": 20,
         "totalEnroll":80,
-        "price":5500
+        "price":5500,
+        "instractorEmail":"safiislam04@gmail.com",
+        "status":"approve"
 
     }
 ]

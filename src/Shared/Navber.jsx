@@ -10,6 +10,7 @@ const Navber = () => {
     }
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to={'/allClass'}>All Class</Link></li>
         <li><Link to={'/dashbord'}>Dasbord</Link></li>
 
     </>
