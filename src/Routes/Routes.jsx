@@ -8,6 +8,7 @@ import MenageClass from "../pages/Dashbord/Admin/MenageClass/MenageClass";
 import MenageUser from "../pages/Dashbord/Admin/MenageUser/MenageUser";
 import ClassAdd from "../pages/Dashbord/Instructor/ClassAdd/ClassAdd";
 import MyClass from "../pages/Dashbord/Instructor/MyClass/MyClass";
+import UpdateClass from "../pages/Dashbord/Instructor/MyClass/UpdateClass";
 
 
 
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
             {
                 path:'myClass',
                 element: <MyClass />
+            },
+            {
+                path:'updateClass/:id',
+                element: <UpdateClass />
             },
 
             // admnin

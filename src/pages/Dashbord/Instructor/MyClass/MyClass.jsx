@@ -1,18 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
-import { AuthContext } from "../../../../AuthProvider/AuthProvider";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import useInstractorClass from "../../../../hooks/useInstractorClass";
+
 
 
 const MyClass = () => {
-    const { user } = useContext(AuthContext)
-    const { data: instructorClass = [], refetch } = useQuery({
-        queryKey: ['course', user?.email],
-        queryFn: async () => {
-            const res = await axios.get(`https://summry-camp-school-server.vercel.app/courses?email=${user?.email}`)
-            return res.data
-        }
-    })
+    const [instructorClass,] = useInstractorClass()
     
     return (
         <div>
@@ -40,7 +32,7 @@ const MyClass = () => {
                                     <td>{item.instractorEmail}</td>
                                     <td>{item.totalEnroll}</td>
                                     <td>{item.status}</td>
-                                    <td><button onClick={()=>updateClass(item._id)} className="btn btn-secondary">Update</button></td>
+                                    <td><Link to={`/dashbord/updateClass/${item._id}`}><button  className="btn btn-secondary">Update</button></Link></td>
                                 </tr>)
                             }
 
