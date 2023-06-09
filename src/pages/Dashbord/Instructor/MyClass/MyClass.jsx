@@ -1,10 +1,22 @@
 import { Link } from "react-router-dom";
 import useInstractorClass from "../../../../hooks/useInstractorClass";
+import { useEffect } from "react";
+
 
 
 
 const MyClass = () => {
-    const [instructorClass,] = useInstractorClass()
+    
+        const [instructorClass,refetch] = useInstractorClass()
+        useEffect(()=>{
+            const intervel = setInterval(()=>{
+                refetch()
+            },5000)
+            return ()=>{
+                clearInterval(intervel)
+            }
+        },[refetch])
+  
     
     return (
         <div>
@@ -26,7 +38,7 @@ const MyClass = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                instructorClass.map((item,index) => <tr key={item._id} className="bg-base-200">
+                                instructorClass.map((item,index) => <tr  key={item._id} className="bg-base-200">
                                     <th>{index + 1 }</th>
                                     <td>{item.courseName}</td>
                                     <td>{item.instractorEmail}</td>

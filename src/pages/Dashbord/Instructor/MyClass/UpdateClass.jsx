@@ -7,11 +7,11 @@ import Swal from "sweetalert2";
 
 const UpdateClass = () => {
     const { id } = useParams()
-    const [instructorClass] = useInstractorClass()
+    const [instructorClass,refetch] = useInstractorClass()
     console.log()
     const url = `https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMG_API_KEY}`
-    const data = instructorClass?.find(item => item._id === id)
-    const { register, handleSubmit, reset } = useForm();
+    const data = instructorClass?.find(item => item?._id === id)
+    const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
         const date = new Date()
         const formData = new FormData()
@@ -23,21 +23,21 @@ const UpdateClass = () => {
             const { courseName, instractorName, instractorEmail, price, availableSeats } = data
             const itemData = { courseName, instractorName, instractorEmail, price, availableSeats: parseInt(availableSeats), totalEnroll: 0, courseImg: imageUrl, status: 'pending', date }
             console.log(itemData)
-            // axios.patch('https://summry-camp-school-server.vercel.app/course', itemData)
-            //     .then(data => {
-            //         console.log(data.data)
-            //         if (data.data.insertedId) {
-            //             reset()
-            //             Swal.fire({
-            //                 position: 'top-end',
-            //                 icon: 'success',
-            //                 title: 'Your Class is Add',
-            //                 showConfirmButton: false,
-            //                 timer: 1500
-            //             })
+            axios.patch(`https://summry-camp-school-server.vercel.app/course/${id}`, itemData)
+                .then(data => {
+                    console.log(data.data)
+                    if (data.data.acknowledged) {
+                        refetch()
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your Class is Add',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
 
-            //         }
-            //     })
+                    }
+                })
 
 
         }
@@ -90,7 +90,7 @@ const UpdateClass = () => {
                     <label className="label">
                         <span className="label-text">Class Image (must image set)  </span>
                     </label>
-                    <input type="file" defaultValue={data?.courseImg} {...register("image")} className="file-input file-input-bordered w-full max-w-xs" />
+                    <input type="file"  {...register("image")} className="file-input file-input-bordered w-full max-w-xs" />
 
                 </div>
                 <div className="text-center">
