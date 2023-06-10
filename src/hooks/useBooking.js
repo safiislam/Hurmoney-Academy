@@ -1,15 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import axios from "axios";
+
+import useAxiosSecure from "./useAxiosSecure";
 
 
 const useBooking = () => {
+    const [axiosSecure] =useAxiosSecure()
     const {user}= useContext(AuthContext)
     const {data:bookings=[]} =useQuery({
         queryKey:['classBookings',user?.email],
+        enabled:!!localStorage.getItem('access-token'),
         queryFn: async () =>{
-            const res = await axios.get(`https://summry-camp-school-server.vercel.app/classBookings?email=${user?.email}`)
+            const res = await axiosSecure.get(`/classBookings?email=${user?.email}`)
             return res.data
         }
     })

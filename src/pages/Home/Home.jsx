@@ -6,7 +6,9 @@ const Home = () => {
     return (
         <div>
             <Slider />
+
             <PopularClassSec />
+
         </div>
     );
 };

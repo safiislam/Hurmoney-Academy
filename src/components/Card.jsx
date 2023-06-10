@@ -5,7 +5,7 @@ const Card = ({ itmes }) => {
     const { courseImg, courseName, availableSeats, totalEnroll, price } = itmes
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-full bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">{courseName}</h2>
                     <div className="flex ">

@@ -1,23 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
 import Container from "../components/Container";
 import { RiAdminLine } from 'react-icons/ri'
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import useUserRole from "../hooks/useUserRole";
 
 
 const DashbordLayout = () => {
-    const{user} = useContext(AuthContext)
-    const { data:userData=[] } = useQuery({
-        queryKey: ['userRole',user?.email],
-        queryFn: async () =>{
-            const data = await axios.get(`https://summry-camp-school-server.vercel.app/userRole?email=${user?.email}`)
-            return data.data
-        }
-     })
-     console.log(userData)
-     console.log(user?.email)
+    const [userData] = useUserRole()
+    
+    
     return (
         <Container>
             <div className="drawer lg:drawer-open">
@@ -54,7 +44,9 @@ const DashbordLayout = () => {
 
 
                         }
+                        
                     </ul>
+
 
                 </div>
             </div>

@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 const MenageClass = () => {
     const [id,setId]=useState('')
+    const [axiosSecure] = useAxiosSecure()
     const { data: pandingData = [], refetch } = useQuery({
         queryKey: ['isPanding'],
         queryFn: async () => {
@@ -14,7 +16,7 @@ const MenageClass = () => {
     })
 
     const handleApprove = id => {
-        axios.patch(`https://summry-camp-school-server.vercel.app/approve/${id}`)
+        axiosSecure.patch(`https://summry-camp-school-server.vercel.app/approve/${id}`)
             .then(res => {
                 console.log(res.data)
             })
@@ -24,7 +26,7 @@ const MenageClass = () => {
         const feedback = event.target.text.value
         console.log(event.target.text.value)
         
-        axios.patch(`http://localhost:5000/deny/${id}`,{feedback})
+        axios.patch(`/deny/${id}`,{feedback})
     }
 
     useEffect(() => {

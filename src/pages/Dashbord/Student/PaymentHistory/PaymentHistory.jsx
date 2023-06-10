@@ -1,16 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
-import axios from "axios";
+
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 const PaymentHistory = () => {
     const { user } = useContext(AuthContext)
+    const {axiosSecure}= useAxiosSecure()
 
     const { data: transection = [] } = useQuery({
         queryKey: ['payment', user?.email],
         queryFn: async () => {
-            const data = await axios.get(`https://summry-camp-school-server.vercel.app/payment?email=${user?.email}`)
+            const data = await axiosSecure.get(`https://summry-camp-school-server.vercel.app/payment?email=${user?.email}`)
             return data.data
         }
     })

@@ -14,6 +14,10 @@ import MyBookings from "../pages/Dashbord/Student/MyBookings/MyBookings";
 import Payment from "../pages/Dashbord/Student/Payment/Payment";
 import PaymentHistory from "../pages/Dashbord/Student/PaymentHistory/PaymentHistory";
 import InstructorPage from "../pages/InstructorPage/InstructorPage";
+import Dashbord from "../pages/Dashbord/Dashbord";
+import PrivetRoutes from "./PrivetRoutes";
+import AdminRoutes from "./AdminRoutes";
+import InstructorRoutes from "./InstructorRoutes";
 
 
 
@@ -46,44 +50,48 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: 'dashbord',
-        element: <DashbordLayout />,
+        path: '/dashbord',
+        element: <PrivetRoutes><DashbordLayout /></PrivetRoutes>,
         children: [
             // sutdent deshbord 
             {
+                path:"all",
+                element: <PrivetRoutes><Dashbord /></PrivetRoutes>
+            },
+            {
                 path:'myBooking',
-                element:<MyBookings />
+                element:<PrivetRoutes><MyBookings /></PrivetRoutes>
             },
             {
                 path:'payment',
-                element: <Payment />
+                element: <PrivetRoutes><Payment /></PrivetRoutes>
             },
             {
                 path:'paymentHistory',
-                element:<PaymentHistory />
+                element:<PrivetRoutes><PaymentHistory /></PrivetRoutes>
             },
             // instructor 
             {
                 path:'addClass',
-                element: <ClassAdd />
+                element: <InstructorRoutes><ClassAdd /></InstructorRoutes>
             },
             {
                 path:'myClass',
-                element: <MyClass />
+                element: <InstructorRoutes><MyClass /></InstructorRoutes>
             },
             {
                 path:'updateClass/:id',
-                element: <UpdateClass />
+                element: <InstructorRoutes><UpdateClass /></InstructorRoutes>
             },
 
             // admnin
             {
                 path:'menageClass',
-                element: <MenageClass />
+                element: <AdminRoutes><MenageClass /></AdminRoutes>
             },
             {
                 path:'menageUser',
-                element: <MenageUser />
+                element: <AdminRoutes><MenageUser /></AdminRoutes>
             }
         ]
     }
