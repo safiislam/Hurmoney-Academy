@@ -14,12 +14,13 @@ const Register = () => {
     const onSubmit = data => {
         const email = data.email
         const password = data.password
+        const url = data.url
         signIn(email, password)
             .then(result => {
                 const user = result.user
 
                 if (user) {
-                    axios.post('https://summry-camp-school-server.vercel.app/users', { name: data.name, email: email })
+                    axios.post('https://summry-camp-school-server.vercel.app/users', { name: data.name, email: email,url:url })
                     updatePro({ name: data.name, url: data.url })
                         .then(() => {
                             navigate('/')

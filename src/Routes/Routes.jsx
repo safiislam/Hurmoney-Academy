@@ -13,6 +13,7 @@ import AllClassPage from "../pages/AllClassPage/AllClassPage";
 import MyBookings from "../pages/Dashbord/Student/MyBookings/MyBookings";
 import Payment from "../pages/Dashbord/Student/Payment/Payment";
 import PaymentHistory from "../pages/Dashbord/Student/PaymentHistory/PaymentHistory";
+import InstructorPage from "../pages/InstructorPage/InstructorPage";
 
 
 
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path:'allClass',
                 element: <AllClassPage />
+            },
+            {
+                path:'instructor',
+                element: <InstructorPage />
             }
 
         ]

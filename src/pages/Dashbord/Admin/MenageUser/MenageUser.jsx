@@ -53,11 +53,11 @@ const MenageUser = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td onClick={() => handleMakeAdmin(user._id)} className="cursor-pointer">Make admin</td>
-                                <td onClick={() => handleInstructor(user._id)} className="cursor-pointer">Make Instructor</td>
+                                <td  className="cursor-pointer">{user?.role === 'admin'? <button disabled className="btn btn-secondary btn-xs">Make admin</button> : <button onClick={() => handleMakeAdmin(user._id)} className="btn btn-primary btn-xs">Make admin</button>   }</td>
+                                <td  className="cursor-pointer">{user?.role ==='instructor'? <button disabled className="btn btn-primary btn-xs">Make Instructor</button>:<button onClick={() => handleInstructor(user._id)} className="btn btn-primary btn-xs">Make Instructor</button> }</td>
                                 <td>{user?.role ? <p>{user.role}</p> : 'student' }</td>
                                 <td><button className="bg-red-500  text-white px-4 py-3 rounded"><FaTrashAlt size={25} /></button></td>
-
+                                
 
                             </tr>)
                         }

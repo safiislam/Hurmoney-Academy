@@ -1,11 +1,23 @@
 import { NavLink, Outlet } from "react-router-dom";
 import Container from "../components/Container";
 import { RiAdminLine } from 'react-icons/ri'
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 
 const DashbordLayout = () => {
-    const isAdmin = false
-    const isInstructor = false
-
+    const{user} = useContext(AuthContext)
+    const { data:userData=[] } = useQuery({
+        queryKey: ['userRole',user?.email],
+        queryFn: async () =>{
+            const data = await axios.get(`https://summry-camp-school-server.vercel.app/userRole?email=${user?.email}`)
+            return data.data
+        }
+     })
+     console.log(userData)
+     console.log(user?.email)
     return (
         <Container>
             <div className="drawer lg:drawer-open">
@@ -20,14 +32,14 @@ const DashbordLayout = () => {
                     <ul className="menu navLinks p-4 w-80 h-full  text-base-content bg-blue-400 ">
                         {/* Sidebar content here */}
                         {
-                            isAdmin ? (
+                            userData.role === 'admin' ? (
                                 <>
                                     <p className="text-xl font-bold  items-center justify-center gap-2 flex mb-10"> <RiAdminLine size={30} /> <span>Admin Dashbord</span></p>
                                     <li><NavLink to='/dashbord/menageClass'>Menage Classes</NavLink></li>
                                     <li><NavLink to='/dashbord/menageUser'>Manage Users</NavLink></li>
                                 </>
                             ) :
-                                isInstructor ? (
+                                userData.role === 'instructor' ? (
                                     <>
                                         <p className="text-xl font-bold  items-center justify-center gap-2 flex mb-10"> <RiAdminLine size={30} /> <span>Instructor Dashbord</span></p>
                                         <li><NavLink to='/dashbord/addClass'>Add Class</NavLink></li>

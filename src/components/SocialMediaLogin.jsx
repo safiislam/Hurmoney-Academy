@@ -15,7 +15,7 @@ const SocialMediaLogin = () => {
         googleSignIn()
         .then((result)=>{
             const user =  result.user
-            const userData = {name:user.displayName,email:user.email}
+            const userData = {name:user.displayName,email:user.email,url : user.photoURL  }
                 axios.post('https://summry-camp-school-server.vercel.app/users', userData )
            
             navigate(from,{replace:true})

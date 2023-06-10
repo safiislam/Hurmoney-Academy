@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 
 
-const AllClasCard = ({ item }) => {
+const AllClasCard = ({ item,isButtonDisabled }) => {
     const { user } = useContext(AuthContext)
     const { courseImg, courseName, availableSeats, totalEnroll, price, instractorName, instractorEmail, _id } = item
 
@@ -51,7 +51,7 @@ const AllClasCard = ({ item }) => {
                     </div>
 
                     <div className="card-actions justify-end">
-                        <button onClick={handleEnrole} className="btn btn-primary">Enroll</button>
+                        <button disabled={!isButtonDisabled} onClick={handleEnrole} className="btn btn-primary">Enroll</button>
                     </div>
                 </div>
             </div>
