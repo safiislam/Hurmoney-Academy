@@ -7,7 +7,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const PaymentHistory = () => {
     const { user } = useContext(AuthContext)
-    const {axiosSecure}= useAxiosSecure()
+    const [axiosSecure]= useAxiosSecure()
 
     const { data: transection = [] } = useQuery({
         queryKey: ['payment', user?.email],
@@ -18,7 +18,7 @@ const PaymentHistory = () => {
     })
     return (
         <div>
-           
+           <p>{transection.length}</p>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

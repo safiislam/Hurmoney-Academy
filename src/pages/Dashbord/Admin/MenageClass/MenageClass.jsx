@@ -24,9 +24,9 @@ const MenageClass = () => {
     const handleSendFeedBack = (event) =>{
         
         const feedback = event.target.text.value
-        console.log(event.target.text.value)
+        // console.log(event.target.text.value)
         
-        axios.patch(`/deny/${id}`,{feedback})
+        axios.patch(`https://summry-camp-school-server.vercel.app/deny/${id}`,{feedback})
     }
 
     useEffect(() => {

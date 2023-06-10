@@ -45,7 +45,7 @@ const UpdateClass = () => {
 
     return (
         <div className="px-16 mt-10">
-            <p className="text-center font-bold text-4xl">Add Class</p>
+            <p className="text-center font-bold text-4xl">Update Class</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full  ">
                     <label className="label">

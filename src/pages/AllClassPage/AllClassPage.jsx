@@ -70,7 +70,7 @@ const AllClassPage = () => {
 
     return (
         <div>
-            <div className="mt-16 grid grid-cols-3 gap-8">
+            <div className="mt-24 grid grid-cols-3 gap-8">
                 {
                     allClass.map(item => <AllClasCard isButtonDisabled={isButtonDisabled} key={item._id} item={item} />)
                 }

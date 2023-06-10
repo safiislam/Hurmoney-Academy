@@ -1,0 +1,32 @@
+[
+    {
+        "name":"Joe Gonzales",
+        "email":"gonzales@gmail.com",
+        "url":"https://imgix.ranker.com/node_img/65/1296835/original/joe-gonzales-recording-artists-and-groups-photo-1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=650",
+        "role":"instructor"
+    },
+    {
+        "name":"Gary Hinman",
+        "email":"hinmon@gmail.com",
+        "url":"https://imgix.ranker.com/user_node_img/67/1332693/original/julian-rachlin-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=650",
+        "role":"instructor"
+    },
+    {
+        "name":"Scott Joplin",
+        "email":"joplin@gmail.com",
+        "url":"https://imgix.ranker.com/node_img/100/1990788/original/scott-joplin-writers-photo-1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=650",
+        "role":"instructor"
+    },
+    {
+        "name":" Roberta Flack",
+        "email":"flack@gmail.com",
+        "url":"https://www.udiscovermusic.com/wp-content/uploads/2022/05/Bernard-Wright-Obituary-820x820.jpg",
+        "role":"instructor"
+    },
+    {
+        "name":"Jimmy Driftwood",
+        "email":"driftwood@gmail.com",
+        "url":"https://encyclopediaofarkansas.net/wp-content/uploads/2022/08/Driftwood1_f.jpg",
+        "role":"instructor"
+    }
+]
