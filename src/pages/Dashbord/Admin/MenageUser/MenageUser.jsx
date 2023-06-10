@@ -2,14 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 
 const MenageUser = () => {
+    const [axiosSecure] = useAxiosSecure()
     const { data: users = [], refetch } = useQuery({
+        
         queryKey: ['users'],
         queryFn: async () => {
-            const data = await axios.get('https://summry-camp-school-server.vercel.app/users')
+            const data = await axiosSecure.get('/users')
             return data.data
         }
     })

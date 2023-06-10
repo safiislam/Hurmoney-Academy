@@ -14,8 +14,9 @@ const AllClasCard = ({ item,isButtonDisabled }) => {
 
 
     const handleEnrole = () => {
+
         const date = new Date()
-        const bookingData = { name: user.displayName, email: user.email, courseId: _id, price, courseName, date }
+        const bookingData = { name: user?.displayName, email: user?.email, courseId: _id, price, courseName, date }
         axios.post('https://summry-camp-school-server.vercel.app/classBookings', bookingData)
             .then(date => {
 
@@ -52,7 +53,7 @@ const AllClasCard = ({ item,isButtonDisabled }) => {
                     </div>
 
                     <div className="card-actions justify-end">
-                        <button disabled={!isButtonDisabled} onClick={handleEnrole} className="btn btn-primary">Enroll</button>
+                        <button disabled={isButtonDisabled} onClick={handleEnrole} className="btn btn-primary">Enroll</button>
                     </div>
                 </div>
             </div>

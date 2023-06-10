@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 
+import { useContext } from "react";
+import { DarkModeContext } from "../AuthProvider/DarkModeProvider";
+
 
 const Card = ({ itmes }) => {
+    const {darkMode}= useContext(DarkModeContext)
     const { courseImg, courseName, availableSeats, totalEnroll, price } = itmes
     return (
-        <div>
-            <div className="card w-full bg-base-100 shadow-xl">
+        <div >
+            <div className={`card w-full ${darkMode ?'bg-black text-white border rounded border-white': 'bg-base-100 text-black' }  shadow-xl`}>
                 <div className="card-body">
                     <h2 className="card-title">{courseName}</h2>
                     <div className="flex ">

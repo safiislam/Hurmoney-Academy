@@ -2,12 +2,13 @@ import { NavLink, Outlet } from "react-router-dom";
 import Container from "../components/Container";
 import { RiAdminLine } from 'react-icons/ri'
 import useUserRole from "../hooks/useUserRole";
+import { FaBook, FaHome, FaSchool } from "react-icons/fa";
 
 
 const DashbordLayout = () => {
     const [userData] = useUserRole()
-    
-    
+
+
     return (
         <Container>
             <div className="drawer lg:drawer-open">
@@ -44,7 +45,13 @@ const DashbordLayout = () => {
 
 
                         }
-                        
+                        <div className="divider"></div>
+
+                        <li><NavLink to='/'><FaHome /> Home</NavLink></li>
+                        <li><NavLink to={'/allClass'}> <FaBook /> All Class</NavLink></li>
+                        <li><NavLink to={'/instructor'}><FaSchool /> All instructor</NavLink></li>
+
+
                     </ul>
 
 

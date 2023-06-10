@@ -18,6 +18,7 @@ import Dashbord from "../pages/Dashbord/Dashbord";
 import PrivetRoutes from "./PrivetRoutes";
 import AdminRoutes from "./AdminRoutes";
 import InstructorRoutes from "./InstructorRoutes";
+import ErrorPage from "../pages/Error/ErrorPage";
 
 
 
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayOut />,
+        errorElement:<ErrorPage />,
         children: [
             {
                 path: '/',

@@ -10,13 +10,13 @@ const MenageClass = () => {
     const { data: pandingData = [], refetch } = useQuery({
         queryKey: ['isPanding'],
         queryFn: async () => {
-            const data = await axios.get('https://summry-camp-school-server.vercel.app/isPanding')
+            const data = await axiosSecure.get('/isPanding')
             return data.data
         }
     })
 
     const handleApprove = id => {
-        axiosSecure.patch(`https://summry-camp-school-server.vercel.app/approve/${id}`)
+        axios.patch(`https://summry-camp-school-server.vercel.app/approve/${id}`)
             .then(res => {
                 console.log(res.data)
             })
