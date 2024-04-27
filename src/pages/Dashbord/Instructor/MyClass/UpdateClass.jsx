@@ -51,7 +51,7 @@ const UpdateClass = () => {
                     <label className="label">
                         <span className="label-text">Class Name</span>
                     </label>
-                    <input type="text" placeholder="Type here" defaultValue={data?.courseName} {...register("courseName")} className="input input-bordered w-full " />
+                    <input type="text" placeholder="Type here" defaultValue={data?.courseName} {...register("courseName")} className="w-full px-3 py-2 mt-1 border-2 border-gray-500 rounded-md focus:outline-none focus:border-black " />
 
 
                 </div>
@@ -59,14 +59,14 @@ const UpdateClass = () => {
                     <label className="label">
                         <span className="label-text">Instructor Name</span>
                     </label>
-                    <input type="text" placeholder="Type here" value={data?.instractorName} {...register("instractorName")} className="input input-bordered w-full " />
+                    <input type="text" placeholder="Type here" value={data?.instractorName} {...register("instractorName")} className="w-full px-3 py-2 mt-1 border-2 border-gray-500 rounded-md focus:outline-none focus:border-black " />
 
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Instructor Email</span>
                     </label>
-                    <input type="text" placeholder="Type here" value={data?.instractorEmail} {...register("instractorEmail")} className="input input-bordered w-full " />
+                    <input type="text" placeholder="Type here" value={data?.instractorEmail} {...register("instractorEmail")} className="w-full px-3 py-2 mt-1 border-2 border-gray-500 rounded-md focus:outline-none focus:border-black " />
 
                 </div>
                 <div className="flex flex-col md:flex-row gap-3">
@@ -74,14 +74,14 @@ const UpdateClass = () => {
                         <label className="label">
                             <span className="label-text">Available seats</span>
                         </label>
-                        <input type="number" placeholder="Type here" defaultValue={data?.availableSeats} {...register("availableSeats")} className="input input-bordered w-full " />
+                        <input type="number" placeholder="Type here" defaultValue={data?.availableSeats} {...register("availableSeats")} className="w-full px-3 py-2 mt-1 border-2 border-gray-500 rounded-md focus:outline-none focus:border-black " />
 
                     </div>
                     <div className="form-control w-full ">
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type="number" placeholder="Type here" defaultValue={data?.price} {...register("price")} className="input input-bordered w-full " />
+                        <input type="number" placeholder="Type here" defaultValue={data?.price} {...register("price")} className="w-full px-3 py-2 mt-1 border-2 border-gray-500 rounded-md focus:outline-none focus:border-black " />
 
                     </div>
 
@@ -94,7 +94,7 @@ const UpdateClass = () => {
 
                 </div>
                 <div className="text-center">
-                    <input className="btn btn-success btn-outline mt-5" type="submit" value="Add Class" />
+                    <input className="bg-[#7B3AED] px-3 py-2 font-semibold rounded-md text-white cursor-pointer" type="submit" value="Add Class" />
                 </div>
             </form>
 

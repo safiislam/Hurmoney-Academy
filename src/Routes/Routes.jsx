@@ -89,11 +89,13 @@ export const router = createBrowserRouter([
             // admnin
             {
                 path:'menageClass',
-                element: <AdminRoutes><MenageClass /></AdminRoutes>
+                // element: <AdminRoutes><MenageClass /></AdminRoutes>
+                element: <MenageClass />
             },
             {
                 path:'menageUser',
-                element: <AdminRoutes><MenageUser /></AdminRoutes>
+                // element: <AdminRoutes><MenageUser /></AdminRoutes>
+                element: <MenageUser />
             }
         ]
     }

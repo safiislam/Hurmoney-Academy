@@ -7,13 +7,15 @@ import { DarkModeContext } from "../AuthProvider/DarkModeProvider";
 
 
 const MainLayOut = () => {
-    const{darkMode} = useContext(DarkModeContext)
+    const { darkMode } = useContext(DarkModeContext)
     console.log(darkMode)
     return (
         <div className={darkMode ? 'dark' : 'light'} >
             <Container>
                 <Navber />
-                <Outlet />
+                <div className="min-h-[calc(100vh - 90px)] mt-8 ">
+                    <Outlet />
+                </div>
                 <Footer />
             </Container>
         </div>

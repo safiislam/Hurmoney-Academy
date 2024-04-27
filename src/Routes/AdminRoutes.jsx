@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
-import useUserRole from "../hooks/useUserRole";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
+import useUserRole from "../hooks/useUserRole";
 
 
 const AdminRoutes = ({children}) => {
-    const [userData,isLoading] = useUserRole()
     const {user,loader} = useContext(AuthContext)
+    const [userData,isLoading] = useUserRole(user)
+    console.log(loader)
+    console.log(isLoading)
     const location = useLocation()
     const isAdmin = userData.role === 'admin'
     if(loader || isLoading){

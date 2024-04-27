@@ -10,7 +10,7 @@ const provider = new GoogleAuthProvider();
 const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [loader, setLoader] = useState(true)
+    const [loader, setLoader] = useState(false)
 
 
     const signIn = (email, password) => {
@@ -37,17 +37,20 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
     useEffect(() => {
+        // setLoader(true)
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
             if(currentUser){
-                axios.post('https://summry-camp-school-server.vercel.app/jwt',{email:currentUser.email} )
+                setLoader(true)
+                axios.post('https://summry-camp-school-server.vercel.app/jwt',{email:currentUser?.email} )
+                // axios.post('http://localhost:5000/jwt',{email:currentUser?.email} )
                 .then(data=>{
                     localStorage.setItem('access-token',data.data.token)
+                    setUser(currentUser)
                     setLoader(false)
-                   
                 })
             }
             else{
+                setUser(null)
                 localStorage.removeItem('access-token')
             }
 
@@ -67,7 +70,8 @@ const AuthProvider = ({ children }) => {
         loader,
         googleSignIn,
         updatePro,
-        logIn
+        logIn,
+        setLoader
     }
     return (
         <AuthContext.Provider value={authInfo}>

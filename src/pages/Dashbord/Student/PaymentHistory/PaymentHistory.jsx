@@ -19,28 +19,28 @@ const PaymentHistory = () => {
     return (
         <div>
            <p>{transection.length}</p>
-            <div className="overflow-x-auto">
-                <table className="table">
+            <div className="">
+                <table className="w-full">
                     {/* head */}
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>enroll courses</th>
-                            <th>price</th>
-                            <th>Transecton id</th>
+                        <tr className="border-2 border-y-black" >
+                            <th className="border-2 border-black">#</th>
+                            <th className="border-2 border-black">Name</th>
+                            <th className="border-2 border-black">enroll courses</th>
+                            <th className="border-2 border-black">price</th>
+                            <th className="border-2 border-black">Transecton id</th>
 
                         </tr>
                     </thead>
                     <tbody>
 
                         {
-                            transection.map((item,index) => <tr key={item._id} className="bg-base-200">
-                                <th>{index + 1}</th>
-                                <td>{item.name}</td>
-                                <td>{item?.className?.map((i,index)=> <p key={index} > {index+1} {i}</p>)}</td>
-                                <td>{item.price}</td>
-                                <td>{item.transectionId}</td>
+                            transection.map(({name,_id,className,price,transectionId},index) => <tr key={_id} className="bg-base-200">
+                                <th className="border-2 border-black">{index + 1}</th>
+                                <td className="border-2 border-black">{name}</td>
+                                <td className="border-2 border-black">{className?.map((i,index)=> <p key={index} > {index+1} {i}</p>)}</td>
+                                <td className="border-2 border-black">{price}</td>
+                                <td className="border-2 border-black">{transectionId}</td>
                             </tr>)
                         }
 

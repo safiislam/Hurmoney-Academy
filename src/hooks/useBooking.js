@@ -8,7 +8,7 @@ import useAxiosSecure from "./useAxiosSecure";
 const useBooking = () => {
     const [axiosSecure] =useAxiosSecure()
     const {user}= useContext(AuthContext)
-    const {data:bookings=[]} =useQuery({
+    const {data:bookings=[],refetch} =useQuery({
         queryKey:['classBookings',user?.email],
         enabled:!!localStorage.getItem('access-token'),
         queryFn: async () =>{
@@ -16,7 +16,7 @@ const useBooking = () => {
             return res.data
         }
     })
-    return [bookings]
+    return [bookings,refetch]
 };
 
 export default useBooking;

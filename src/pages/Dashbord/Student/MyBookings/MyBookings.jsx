@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const MyBookings = () => {
     const [bookings, refetch] = useBooking()
    
+    console.log(bookings)
     const total = bookings.reduce((sum, item) => sum + item.price, 0)
     const handleDelate = (id) => {
         Swal.fire({
@@ -46,26 +47,26 @@ const MyBookings = () => {
             <div className="flex justify-between">
                 <p className="text-3xl font-bold">Total Books:{bookings.length}  </p>
                 <p className="text-xl font-bold">Total price: {total}  </p>
-                <Link to='/dashbord/payment'><button  className="btn btn-success btn-xs" >payment</button></Link>
+                <Link to='/dashbord/payment'><button  className="px-6 py-2 text-sm transition-colors duration-300  shadow-xl text-violet-100 bg-violet-500 hover:bg-violet-600 shadow-violet-400" >payment</button></Link>
             </div>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="w-full">
                     {/* head */}
-                    <thead className="bg-base-300">
+                    <thead className="border-2 border-black">
                         <tr>
-                            <th>#</th>
-                            <th> Course Name</th>
-                            <th>price</th>
-                            <th>Action</th>
+                            <th className="border-2 border-black">#</th>
+                            <th className="border-2 border-black"> Course Name</th>
+                            <th className="border-2 border-black">price</th>
+                            <th className="border-2 border-black">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            bookings.map((item, index) => <tr key={item._id}>
-                                <th>{index + 1}</th>
-                                <td>{item.courseName}</td>
-                                <td>{item.price}</td>
-                                <td><button onClick={() => handleDelate(item._id)} className="btn bg-red-500"><FaTrashAlt size={20} /></button></td>
+                            bookings.map(({_id,courseName,price}, index) => <tr key={_id}>
+                                <th className="border-2 border-black">{index + 1}</th>
+                                <td className="border-2 border-black text-center">{courseName}</td>
+                                <td className="border-2 border-black text-center">{price}</td>
+                                <td className="border-2 border-black text-center"><button onClick={() => handleDelate(_id)} className="text-white px-3 rounded-md  py-3 bg-red-500"><FaTrashAlt size={20} /></button></td>
                             </tr>)
                         }
                     </tbody>
