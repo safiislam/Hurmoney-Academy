@@ -3,17 +3,19 @@
 @tailwind utilities;
 
 .navLinks a.active {
-    background: transparent;
-    color: white ;
-  }
+  background: transparent;
+  color: white;
+}
 
 .light {
   background-color: white;
   color: black;
 }
 
-
 .dark {
   background-color: black;
   color: white;
 }
+/* * {
+  cursor: none !important;
+} */

@@ -1,0 +1,15 @@
+.custom-cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #000000;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-in-out, background-color 0.3s ease;
+}
+
+.custom-cursor.hovered {
+  transform: scale(1.5);
+  background-color: #ffffff;
+}

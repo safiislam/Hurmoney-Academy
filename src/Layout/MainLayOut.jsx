@@ -4,20 +4,22 @@ import Container from "../components/Container";
 import Footer from "../Shared/Footer";
 import { useContext } from "react";
 import { DarkModeContext } from "../AuthProvider/DarkModeProvider";
+import CustomCursor from "../components/CustomCursor/CustomCursor";
 
 
 const MainLayOut = () => {
     const { darkMode } = useContext(DarkModeContext)
     console.log(darkMode)
     return (
-        <div className={darkMode ? 'dark' : 'light'} >
+        <div>
+            <Navber />
             <Container>
-                <Navber />
                 <div className="min-h-[calc(100vh - 90px)] mt-8 ">
                     <Outlet />
                 </div>
-                <Footer />
             </Container>
+            <Footer />
+            <CustomCursor />
         </div>
     );
 };
